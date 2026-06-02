@@ -7,28 +7,36 @@
 /ppt <기획 내용 또는 메일 붙여넣기 — 길고 비정형이어도 됨>
 ```
 
-## 설치
+## 설치 — 한 줄이면 끝 (macOS)
+
+터미널(응용프로그램 › 유틸리티 › 터미널)에 아래 한 줄을 붙여넣고 Enter:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/annie-recruit/claude-ppt-skill/main/install.sh | bash
+```
+
+이 한 줄이 **Homebrew · git · python3 · python-pptx · PyMuPDF · LibreOffice · Pretendard 폰트**까지 알아서 깔고, 스킬 파일을 `~/.claude/commands/`에 복사한다. 끝나면 Claude Code에서 바로 `/ppt`. (Homebrew 최초 설치 시 macOS 암호를 한 번 물어볼 수 있음. 설치는 5~10분 — LibreOffice가 큼.)
+
+> **Claude Code 사용자라면 더 간단히** — 그냥 Claude에게 이 레포 주소를 주고 "이 스킬 설치해줘"라고 하면 알아서 클론하고 `install.sh`를 돌린다.
+
+<details><summary>수동 / 클론 후 설치</summary>
 
 ```bash
 git clone https://github.com/annie-recruit/claude-ppt-skill.git
-cd claude-ppt-skill
-bash install.sh
+cd claude-ppt-skill && bash install.sh
 ```
+또는 파일만: `ppt.md`·`ppt_benchmarks.md`·`assets/`를 `~/.claude/commands/`에 두고, `python3 -m pip install python-pptx PyMuPDF` 실행.
+</details>
 
-`install.sh`는 스킬 파일을 `~/.claude/commands/`에 복사하고 의존성을 설치한다. 이후 Claude Code에서 `/ppt`를 바로 쓸 수 있다.
+## 무엇이 동봉되고 무엇이 자동 설치되나
 
-> 수동 설치: `ppt.md`, `ppt_benchmarks.md`, `assets/`를 `~/.claude/commands/`에 그대로 두면 된다. 스킬이 경로를 `~/.claude/commands/...`로 참조하므로 위치가 중요하다.
-
-## 의존성
-
-| 항목 | 용도 | 설치 |
+| 구분 | 항목 | 처리 |
 |---|---|---|
-| `python-pptx` | pptx 생성 엔진 (필수) | `pip3 install python-pptx` |
-| `PyMuPDF` 또는 poppler | PDF→PNG 렌더 검증 | `pip3 install PyMuPDF` |
-| LibreOffice | pptx→pdf 변환 | `brew install --cask libreoffice` |
-| Pretendard 폰트 | 한글 렌더 정확도 | `brew install --cask font-pretendard` |
+| 📦 레포 동봉 | `ppt.md` · `ppt_benchmarks.md` · `assets/` Pretendard 폰트(.otf) | `install.sh`가 `~/.claude/commands/`로 복사 |
+| ⚙️ 자동 설치 | Homebrew · git · python3 · **python-pptx** · **PyMuPDF** | `install.sh`가 설치 (python-pptx·PyMuPDF는 필수) |
+| ⚙️ 자동 설치 | LibreOffice · Pretendard 폰트 | `install.sh`가 brew로 설치 (렌더 검증용) |
 
-macOS 기준. (LibreOffice·폰트 미설치 시 생성은 되지만 자체 렌더 검증은 건너뛴다.)
+용량이 큰 LibreOffice·Python 패키지는 파일로 동봉하지 않고 `install.sh`가 받아온다. LibreOffice가 없어도 `.pptx` 생성은 되지만, 생성 후 PDF 렌더 자체 검증은 건너뛴다.
 
 ## 동작 방식
 
