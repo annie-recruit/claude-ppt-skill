@@ -1,10 +1,10 @@
 # /ppt — 프롬프트 → 완성도 높은 기획안 PPT 생성 (Claude Code 슬래시 커맨드)
 
-비정형 텍스트(프롬프트·이메일·메모)를 입력하면, **python-pptx**로 16:9 NC 스타일 기획안 `.pptx` + `.pdf`를 만들어 주는 [Claude Code](https://claude.com/claude-code) 슬래시 커맨드. 명사형 종결·Executive Register·스토리텔링 서사·플랫 디자인 시스템을 따른다. 생성 후 PDF로 렌더해 **눈으로 자체 검증**까지 한다.
+비정형 텍스트(프롬프트·이메일·메모)를 입력하면, **python-pptx**로 16:9 기획안 `.pptx` + `.pdf`를 만들어 주는 [Claude Code](https://claude.com/claude-code) 슬래시 커맨드. 명사형 종결·Executive Register·스토리텔링 서사·플랫 디자인 시스템(Navy/Sky · Pretendard)을 따른다. 생성 후 PDF로 렌더해 **눈으로 자체 검증**까지 한다.
 
 ```
-/ppt 시니어 백엔드 엔지니어 채용 제안서. 핀테크 도메인, 시리즈B 50명 규모.
-/ppt <기획 내용 또는 메일 붙여넣기>
+/ppt 신규 입사자 온보딩을 입사 전·당일·1주·1개월로 표준화하는 기획안. 웰컴 메일·멘토멘티·협업툴 가이드·30일 피드백 포함.
+/ppt <기획 내용 또는 메일 붙여넣기 — 길고 비정형이어도 됨>
 ```
 
 ## 설치
