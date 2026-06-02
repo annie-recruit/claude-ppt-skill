@@ -19,13 +19,26 @@ curl -fsSL https://raw.githubusercontent.com/annie-recruit/claude-ppt-skill/main
 
 > **Claude Code 사용자라면 더 간단히** — 그냥 Claude에게 이 레포 주소를 주고 "이 스킬 설치해줘"라고 하면 알아서 클론하고 `install.sh`를 돌린다.
 
-<details><summary>수동 / 클론 후 설치</summary>
+## 설치 — 한 줄이면 끝 (Windows)
 
+**PowerShell**(시작 › "PowerShell" 검색 › 실행)에 아래 한 줄을 붙여넣고 Enter:
+
+```powershell
+irm https://raw.githubusercontent.com/annie-recruit/claude-ppt-skill/main/install.ps1 | iex
+```
+
+이 한 줄이 **Python · python-pptx · PyMuPDF · Pretendard 폰트 · (선택)LibreOffice**를 깔고, 스킬 파일을 `%USERPROFILE%\.claude\commands\`에 복사한다. **git·관리자 권한 불필요**(레포 zip을 받아 사용자 단위로 설치). Python·LibreOffice는 `winget`으로 자동 설치된다.
+
+> 스크립트 실행이 막히면(실행 정책) PowerShell에서 먼저 `Set-ExecutionPolicy -Scope Process Bypass -Force` 한 줄 실행 후 다시 시도.
+
+<details><summary>수동 / 클론 후 설치 (macOS·Windows 공통)</summary>
+
+macOS:
 ```bash
 git clone https://github.com/annie-recruit/claude-ppt-skill.git
 cd claude-ppt-skill && bash install.sh
 ```
-또는 파일만: `ppt.md`·`ppt_benchmarks.md`·`assets/`를 `~/.claude/commands/`에 두고, `python3 -m pip install python-pptx PyMuPDF` 실행.
+파일만 직접: `ppt.md`·`ppt_benchmarks.md`·`assets/`를 `~/.claude/commands/`(Windows는 `%USERPROFILE%\.claude\commands\`)에 두고, `python3 -m pip install python-pptx PyMuPDF` 실행.
 </details>
 
 ## 무엇이 동봉되고 무엇이 자동 설치되나
